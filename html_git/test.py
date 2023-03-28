@@ -13,7 +13,7 @@ html = html.read()
 msg.add_alternative(html,subtype='html')
 server='smtp.qq.com'
 port=465
-passwd='hiyzinebopkgcijb'
+passwd=""#自己打开邮箱--设置 --账户--开启服务--IMAP/SMTP 复制 授权码
 with smtplib.SMTP_SSL(server,port) as server:
     server.login(email_sender,passwd)
     server.send_message(msg)
