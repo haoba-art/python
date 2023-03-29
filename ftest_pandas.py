@@ -8,20 +8,20 @@ import numpy as np
 import pandas as pd
 
 # 2.导入CSV或者xlsx文件
-df = pd.DataFrame(pd.read_csv('name.csv'))
+# df = pd.DataFrame(pd.read_csv('name.csv'))
 # df = pd.DataFrame(pd.read_excel('name.xlsx'))
 # 3.用pandas创建数据表
 df = pd.DataFrame({"id": [1001, 1002, 1003, 1004, 1005, 1006],
                    "date": pd.date_range('20130102', periods=6),
                    "city": ['Beijing ', 'SH', ' guangzhou ', 'Shenzhen', 'shanghai', 'BEIJING'],
-                   "age": [23, 44, 54, 32, 34, 32],
+                   "age": [np.nan, 44, 54, 32, 34, 32],
                    "category": ['100-A', '100-B', '110-A', '110-C', '210-A', '130-F'],
                    "price": [1200, np.nan, 2133, 5433, np.nan, 4432]},
                   columns=['id', 'date', 'city', 'category', 'age', 'price'])
-print(df)
+# print(df)
 
 
-# 二、数据表信息查看
+# 二、数据表信息查看(以读取name.csv为例)
 """# 1、维度查看：
 print(df.shape)
 # 2、数据表基本信息（维度、列名称、数据格式、所占空间等）：
@@ -45,9 +45,9 @@ print(df.head(4))
 print(df.tail(3))"""
 
 
-# 三、数据表清洗
+# 三、数据表清洗(以自建df为例)
 """# 1、用数字0填充空值：
-df = df.fillna(value=0)
+# df = df.fillna(value=0)
 # 2.使用列的均值对NA进行填充：
 df['age'] = df['age'].fillna(df['age'].mean())
 # 3、清除city字段的字符空格：
@@ -57,13 +57,13 @@ df['city'] = df['city'].str.lower()
 # 5、更改数据格式：
 df['age'] = df['age'].astype('int')
 # 6、更改列名称：
-df = df.rename(columns={'age': 'price'})
+df = df.rename(columns={'age': 'account'})
 # 7、删除后出现的重复值
-df['name'] = df['name'].drop_duplicates()
+df['account'] = df['account'].drop_duplicates()
 # 8 、删除先出现的重复值：
-df['name'] = df['name'].drop_duplicates(keep='last')
+df['account'] = df['account'].drop_duplicates(keep='last')
 # 9、数据替换：
-df['name'] = df['name'].replace('jess', 'guaoo')"""
+df['account'] = df['account'].replace(44, 34)"""
 
 
 # 四、数据预处理
